@@ -1,6 +1,6 @@
 # Import python packages
 import streamlit as st
-from snowflake.snowpark.context import get_active_session
+#from snowflake.snowpark.context import get_active_session
 
 
 
@@ -10,8 +10,9 @@ st.write(
     """Choose the fruits you want is your custom Smoothies!
     """)
 from snowflake.snowpark.functions import col
-
-session = get_active_session()
+cnx = st.connection("snowflake")
+session = cnx.session()
+#session = get_active_session()
 my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT_NAME'))
 st.dataframe(data=my_dataframe,use_container_width=True)
 
