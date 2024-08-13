@@ -5,7 +5,7 @@ import streamlit as st
 
 
 # Write directly to the app
-streamlit.title('My Parents New HEalty Diner')
+st.title('My Parents New HEalty Diner')
 #st.title(":cup_with_straw: Customize Your Smoothie! :cup_with_straw:")
 st.write(
     """Choose the fruits you want is your custom Smoothies!
