@@ -1,7 +1,7 @@
 # Import python packages
 import streamlit as st
 from snowflake.snowpark.context import get_active_session
-from snowflake.snowpark.functions import col
+from snowflake.snowpark.functions import col 
 
 
 # Write directly to the app
@@ -17,9 +17,11 @@ my_dataframe = session.table("smoothies.public.fruit_options").select(col('FRUIT
 st.dataframe(data=my_dataframe,use_container_width=True)
 
 
+
 ingredients_list = st.multiselect(
     'Choose up to 5 ingredients:',
-    my_dataframe
+    my_dataframe ,
+    max_selections = 5
 )
 
 #st.write(ingredients_list)
@@ -49,3 +51,6 @@ if ingredients_list:
    # if ingredients_string:
         #session.sql(my_insert_stmt).collect()
         st.success('Your Smoothie is ordered!', icon="✅")
+
+
+
